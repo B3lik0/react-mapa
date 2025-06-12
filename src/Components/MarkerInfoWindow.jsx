@@ -9,7 +9,7 @@ export const MarkerWithInfowindow = (location) => {
     const open = true;
     const [infowindowOpen, setInfowindowOpen] = useState(!open);
     const [markerRef, marker] = useAdvancedMarkerRef();
-    const { lat, lng, descrip, foliounico, } = location;
+    const { lat, lng, descrip, idreport, } = location;
     if (!lat || !lng) {
         console.error('Location must have lat and lng properties');
         return null;
@@ -28,14 +28,14 @@ export const MarkerWithInfowindow = (location) => {
                     maxWidth={200}
                     onCloseClick={() => setInfowindowOpen(!open)}>
                     <div className='text-center text-black w-fit'>
-                        <h2 className='text-lg font-bold'>Reporte Folio ${foliounico}</h2>
+                        <h2 className='text-lg font-bold'>Reporte Folio ${idreport}</h2>
                         <a
-                            href={`/reports/${foliounico}`}
+                            href={`/reports/${idreport}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-blue-600 hover:underline"
                         >
-                            {foliounico}
+                            {idreport}
                         </a>
                         <p className='text-sm'>
                             {descrip}
